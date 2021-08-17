@@ -176,6 +176,7 @@ static void urlParseHeaderLine(struct HashMap *hashmap, const char *s,
         v             = urlMakeString(value, vl);
       }
       addToHashMap(hashmap, k, v);
+      warn("header k: %s, v: %s\n", k, v);
     }
   }
 }

@@ -103,6 +103,7 @@ static unsigned int stringHashFunc(const char *s) {
 
 const void *addToHashMap(struct HashMap *hashmap, const char *key,
                          const char *value) {
+  warn("addToHashMap k: %s, v: %s\n", key, value);
   if (hashmap->numEntries + 1 > (hashmap->mapSize * 8)/10) {
     struct HashMap newMap;
     newMap.numEntries            = hashmap->numEntries;
