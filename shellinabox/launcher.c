@@ -1824,7 +1824,7 @@ static void launcherDaemon(int fd) {
       }
     }
 
-    warn("request - webAuthUser: %s, webAuthRoles: %s", request->webAuthUser, request->webAuthRoles);
+    warn("request - webAuthUser: %s, webAuthRoles: %s", request.webAuthUser, request.webAuthRoles);
 
     // Fork and exec the child process.
     int pty;
