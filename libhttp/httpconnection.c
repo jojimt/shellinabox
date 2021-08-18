@@ -1915,12 +1915,12 @@ const char *httpGetRealIP(const struct HttpConnection *http) {
 }
 
 const char *httpGetWebAuthUser(const struct HttpConnection *http) {
-  return "none"
+  return "none";
 //  return getFromHashMap(&http->header, "x-webauth-user");
 }
 
 const char *httpGetWebAuthRoles(const struct HttpConnection *http) {
-  return "none"
+  return "none";
   //return getFromHashMap(&http->header, "x-webauth-roles");
 }
 
