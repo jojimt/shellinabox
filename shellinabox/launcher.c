@@ -1568,9 +1568,9 @@ static void childProcess(struct Service *service, int width, int height,
   check(environment             = realloc(environment,
                                           (numEnvVars + 1)*sizeof(char *)));
 //  environment[numEnvVars-5]     = stringPrintf(NULL, "SHELLINABOX_WEBAUTHUSER=%s",
-                                               webAuthUser);
- // environment[numEnvVars-4]     = stringPrintf(NULL, "SHELLINABOX_WEBAUTHROLES=%s",
-                                               webAuthRoles);
+//                                               webAuthUser);
+// environment[numEnvVars-4]     = stringPrintf(NULL, "SHELLINABOX_WEBAUTHROLES=%s",
+//                                               webAuthRoles);
   environment[numEnvVars-3]     = stringPrintf(NULL, "SHELLINABOX_URL=%s",
                                                url);
   environment[numEnvVars-2]     = stringPrintf(NULL, "SHELLINABOX_PEERNAME=%s",
