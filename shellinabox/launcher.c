@@ -1561,15 +1561,15 @@ static void childProcess(struct Service *service, int width, int height,
     }
   }
 
-  warn("webAuthUser: %s webAuthRoles: %s\n", webAuthUser, webAuthRoles);
+  //warn("webAuthUser: %s webAuthRoles: %s\n", webAuthUser, webAuthRoles);
   // Add useful environment variables that can be used in custom client scripts
   // or programs.
-  numEnvVars                   += 5;
+  numEnvVars                   += 3;
   check(environment             = realloc(environment,
                                           (numEnvVars + 1)*sizeof(char *)));
-  environment[numEnvVars-5]     = stringPrintf(NULL, "SHELLINABOX_WEBAUTHUSER=%s",
+//  environment[numEnvVars-5]     = stringPrintf(NULL, "SHELLINABOX_WEBAUTHUSER=%s",
                                                webAuthUser);
-  environment[numEnvVars-4]     = stringPrintf(NULL, "SHELLINABOX_WEBAUTHROLES=%s",
+ // environment[numEnvVars-4]     = stringPrintf(NULL, "SHELLINABOX_WEBAUTHROLES=%s",
                                                webAuthRoles);
   environment[numEnvVars-3]     = stringPrintf(NULL, "SHELLINABOX_URL=%s",
                                                url);
