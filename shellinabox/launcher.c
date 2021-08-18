@@ -1320,12 +1320,13 @@ static void execService(int width ATTR_UNUSED, int height ATTR_UNUSED,
   check(key                   = strdup("realip"));
   check(value                 = strdup(realIP));
   addToHashMap(vars, key, value);
-  check(key                   = strdup("webauthuser"));
+/*  check(key                   = strdup("webauthuser"));
   check(value                 = strdup(webAuthUser));
   addToHashMap(vars, key, value);
   check(key                   = strdup("webauthroles"));
   check(value                 = strdup(webAuthRoles));
   addToHashMap(vars, key, value);
+*/
   check(key                   = strdup("uid"));
   addToHashMap(vars, key, stringPrintf(NULL, "%d", service->uid));
   check(key                   = strdup("url"));
@@ -1826,7 +1827,11 @@ static void launcherDaemon(int fd) {
       }
     }
 
-    warn("request - webAuthUser: %s, webAuthRoles: %s", request.webAuthUser, request.webAuthRoles);
+    if (request.webAuthUser && request.webAuthRoles) {
+        warn("request - webAuthUser: %s, webAuthRoles: %s", request.webAuthUser, request.webAuthRoles);
+    } else {
+        warn("missing webAuth info")
+    }
 
     // Fork and exec the child process.
     int pty;
