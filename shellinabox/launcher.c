@@ -1830,7 +1830,7 @@ static void launcherDaemon(int fd) {
     if (request.webAuthUser && request.webAuthRoles) {
         warn("request - webAuthUser: %s, webAuthRoles: %s", request.webAuthUser, request.webAuthRoles);
     } else {
-        warn("missing webAuth info")
+        warn("missing webAuth info");
     }
 
     // Fork and exec the child process.
