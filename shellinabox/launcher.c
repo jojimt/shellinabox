@@ -536,6 +536,7 @@ int launchChild(int service, struct Session *session, const char *url) {
     strncat(request->realIP, realIP, sizeof(request->realIP) - 1);
   }
   const char *webAuthUser   = httpGetWebAuthUser(session->http);
+  warn("webAuthUser from http: %s", webAuthUser)
   if (webAuthUser && *webAuthUser) {
     strncat(request->webAuthUser, webAuthUser, sizeof(request->webAuthUser) - 1);
   }
@@ -1557,6 +1558,7 @@ static void childProcess(struct Service *service, int width, int height,
     }
   }
 
+  warn("webAuthUser: %s webAuthRoles: %s\n", webAuthUser, webAuthRoles) 
   // Add useful environment variables that can be used in custom client scripts
   // or programs.
   numEnvVars                   += 5;
@@ -1742,6 +1744,7 @@ static void launcherDaemon(int fd) {
       break;
     }
 
+    warn("request - webAuthUser: %s, webAuthRoles: %s", webAuthUser, webAuthRoles)
     // Check whether our read operation got interrupted, because a child
     // has died.
     int   status;
