@@ -1158,11 +1158,12 @@ static int httpParseHeaders(struct HttpConnection *http,
     }
     value[j]               = '\000';
     if (getRefFromHashMap(&http->header, http->key)) {
-      debug("[http] Dropping duplicate header \"%s\"", http->key);
+      warn("[http] Dropping duplicate header \"%s\"", http->key);
       free(http->key);
       free(value);
       http->key            = NULL;
     } else {
+      warn("[http] found header \"%s\"", http->key);
       addToHashMap(&http->header, http->key, value);
     }
   }
