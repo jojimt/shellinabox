@@ -1915,11 +1915,13 @@ const char *httpGetRealIP(const struct HttpConnection *http) {
 }
 
 const char *httpGetWebAuthUser(const struct HttpConnection *http) {
-  return getFromHashMap(&http->header, "x-webauth-user");
+  return "none"
+//  return getFromHashMap(&http->header, "x-webauth-user");
 }
 
 const char *httpGetWebAuthRoles(const struct HttpConnection *http) {
-  return getFromHashMap(&http->header, "x-webauth-roles");
+  return "none"
+  //return getFromHashMap(&http->header, "x-webauth-roles");
 }
 
 const char *httpGetMethod(const struct HttpConnection *http) {
