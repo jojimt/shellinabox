@@ -536,9 +536,11 @@ int launchChild(int service, struct Session *session, const char *url) {
     strncat(request->realIP, realIP, sizeof(request->realIP) - 1);
   }
   const char *webAuthUser   = httpGetWebAuthUser(session->http);
-  warn("webAuthUser from http: %s", webAuthUser);
   if (webAuthUser && *webAuthUser) {
+    warn("webAuthUser from http: %s", webAuthUser);
     strncat(request->webAuthUser, webAuthUser, sizeof(request->webAuthUser) - 1);
+  } else {
+    warn("webAuthUser not found");
   }
   const char *webAuthRoles   = httpGetWebAuthRoles(session->http);
   if (webAuthRoles && *webAuthRoles) {
