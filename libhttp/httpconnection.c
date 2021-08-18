@@ -1914,6 +1914,14 @@ const char *httpGetRealIP(const struct HttpConnection *http) {
   return getFromHashMap(&http->header, "x-real-ip");
 }
 
+const char *httpGetWebAuthUser(const struct HttpConnection *http) {
+  return getFromHashMap(&http->header, "x-webauth-user");
+}
+
+const char *httpGetWebAuthRoles(const struct HttpConnection *http) {
+  return getFromHashMap(&http->header, "x-webauth-roles");
+}
+
 const char *httpGetMethod(const struct HttpConnection *http) {
   return http->method;
 }
