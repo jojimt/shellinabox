@@ -1744,7 +1744,6 @@ static void launcherDaemon(int fd) {
       break;
     }
 
-    warn("request - webAuthUser: %s, webAuthRoles: %s", webAuthUser, webAuthRoles);
     // Check whether our read operation got interrupted, because a child
     // has died.
     int   status;
@@ -1824,6 +1823,8 @@ static void launcherDaemon(int fd) {
         *s                    = '-';
       }
     }
+
+    warn("request - webAuthUser: %s, webAuthRoles: %s", request->webAuthUser, request->webAuthRoles);
 
     // Fork and exec the child process.
     int pty;
