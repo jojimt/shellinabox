@@ -538,13 +538,13 @@ int launchChild(int service, struct Session *session, const char *url) {
   const char *webAuthUser   = httpGetWebAuthUser(session->http);
   if (webAuthUser && *webAuthUser) {
     warn("webAuthUser from http: %s", webAuthUser);
-    strncat(request->webAuthUser, webAuthUser, sizeof(request->webAuthUser) - 1);
+//    strncat(request->webAuthUser, webAuthUser, sizeof(request->webAuthUser) - 1);
   } else {
     warn("webAuthUser not found");
   }
   const char *webAuthRoles   = httpGetWebAuthRoles(session->http);
   if (webAuthRoles && *webAuthRoles) {
-    strncat(request->webAuthRoles, webAuthRoles, sizeof(request->webAuthRoles) - 1);
+ //   strncat(request->webAuthRoles, webAuthRoles, sizeof(request->webAuthRoles) - 1);
   }
   request->urlLength   = strlen(u);
   memcpy(&request->url, u, request->urlLength);
